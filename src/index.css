@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@700&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #2B2B2B;
+    background-color: #F0F0F6;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #FFB400 #F0F0F6;
+  }
+}
+
+@layer components {
+  :root {
+    --color-accent-yellow: #FFB400;
+    --color-text-dark: #2B2B2B;
+    --color-text-gray: #767676;
+    --color-bg-light: #F0F0F6;
+    --color-bg-lighter: #FAFAFA;
+    --color-bg-white: #FFFFFF;
+    --color-green-available: #7EB942;
+    --color-border-light: #F0F0F6;
+  }
+
+  .btn-primary {
+    @apply bg-[#FFB400] text-[#2B2B2B] font-semibold uppercase px-6 py-3 
+           hover:bg-yellow-500 transition-all duration-300 inline-flex items-center gap-2;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-[#2B2B2B] capitalize mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-sm md:text-base text-[#767676] max-w-md mx-auto text-center mb-12;
+  }
+
+  .skill-bar {
+    @apply h-1 bg-[#F0F0F6] relative overflow-hidden;
+  }
+
+  .skill-bar-fill {
+    @apply h-full bg-[#FFB400] absolute top-0 left-0;
+  }
+
+  .card {
+    @apply bg-white p-6 transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:shadow-lg hover:-translate-y-1;
+  }
+
+  @keyframes slide-in {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-in {
+    animation: slide-in 0.3s ease-out;
+  }
+}
+/* Fade up animation */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating image */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Decorative slow drift */
+.drift {
+  animation: drift 12s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(10px); }
+}
+
+/* Scroll-triggered animations */
+.scroll-fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-fade-up.scroll-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-fade-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-fade-left.scroll-animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-fade-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-fade-right.scroll-animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-scale.scroll-animate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Delay classes for staggered animations */
+.scroll-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.scroll-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.scroll-delay-3 {
+  transition-delay: 0.3s;
+}
+
+.scroll-delay-4 {
+  transition-delay: 0.4s;
+}
+
+.scroll-delay-5 {
+  transition-delay: 0.5s;
+}
+
+/* Navigation entrance animation */
+@keyframes slideInTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.nav-entrance {
+  animation: slideInTop 0.6s ease-out forwards;
+}
+
+/* Sidebar entrance animations */
+.sidebar-content {
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.sidebar-item {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.sidebar-item:nth-child(1) { animation-delay: 0.1s; }
+.sidebar-item:nth-child(2) { animation-delay: 0.2s; }
+.sidebar-item:nth-child(3) { animation-delay: 0.3s; }
+.sidebar-item:nth-child(4) { animation-delay: 0.4s; }
+.sidebar-item:nth-child(5) { animation-delay: 0.5s; }
+.sidebar-item:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modal fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
