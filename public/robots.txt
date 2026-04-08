@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://chiragmavadiya.netlify.app/sitemap.xml
+Disallow: /admin

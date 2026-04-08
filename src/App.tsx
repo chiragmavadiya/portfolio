@@ -7,6 +7,7 @@ import SplashScreen from "./components/SplashScreen"
 import ScrollToTop from "./components/ScrollToTop"
 import GoogleAnalytics from "./components/GoogleAnalytics"
 import ErrorBoundary from "./components/ErrorBoundary"
+import HelmetContext from "./components/HelmetContext"
 
 // Lazy load pages for code splitting
 const Home = lazy(() => import("./pages/Home"))
@@ -36,7 +37,7 @@ const App: React.FC = () => {
             <Footer />
           </Suspense>
         </ErrorBoundary>
-
+        <HelmetContext />
         <main className="lg:ml-80 pt-24 lg:pt-16 pb-20">
           <ErrorBoundary>
             <Suspense fallback={

@@ -6,13 +6,16 @@ import './index.css'
 import App from './App.tsx'
 import { ToastProvider } from './contexts/ToastContext'
 import { NavigationProvider } from './contexts/NavigationContext'
+import { HelmetProvider } from 'react-helmet-async';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ToastProvider>
-      <NavigationProvider>
-        <App />
-      </NavigationProvider>
-    </ToastProvider>
+    <HelmetProvider>
+      <ToastProvider>
+        <NavigationProvider>
+          <App />
+        </NavigationProvider>
+      </ToastProvider>
+    </HelmetProvider>
   </StrictMode>,
 )
